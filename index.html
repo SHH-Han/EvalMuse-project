@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="description"
+        content="EvalMuse-40K: A Reliable and Fine-Grained Benchmark with Comprehensive Human Annotations for Text-to-Image Generation Model Evaluation">
+  <meta name="keywords" content="Evaluation, Benchmark, Prompts, Dataset, Image Alignment Evaluation, Text-to-Image, AIGC, Image Generation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EvalMuse-40K: A Reliable and Fine-Grained Benchmark with Comprehensive Human Annotations for Text-to-Image Generation Model Evaluation</title>
+
+<!--   Global site tag (gtag.js) - Google Analytics-->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5ZVQZ7NHC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-Y5ZVQZ7NHC');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+
+  <link rel="stylesheet" href="./assets/css/bulma.min.css">
+  <link rel="stylesheet" href="./assets/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./assets/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./assets/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./assets/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./assets/js/fontawesome.all.min.js"></script>
+  <script src="./assets/js/bulma-carousel.min.js"></script>
+  <script src="./assets/js/bulma-slider.min.js"></script>
+  <script src="./assets/js/index.js"></script>
+</head>
+<body>
+
+<!-- title -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title"><span style="color:#B9770E; font-weight: bold; font-style: italic">EvalMuse-40K</span> : A Reliable and Fine-Grained Benchmark with Comprehensive Human Annotations for Text-to-Image Generation Model Evaluation</h1>
+          
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"></span>
+        </div>
+
+        <div class="column has-text-centered">
+          <div class="publication-links">
+            
+            <span class="link-block">
+              <a href="" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="ai ai-arxiv"></i>
+                </span>
+                <span>Paper (EvalMuse-40K)</span>
+              </a>
+            </span>
+            <!-- Video Link. -->
+            <span class="link-block">
+              <a href="" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fab fa-youtube"></i>
+                </span>
+                <span>Video (TBD)</span>
+              </a>
+            </span>
+            <!-- Code Link. -->
+            <span class="link-block">
+              <a href="https://github.com/DYEvaLab/EvalMuse" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>GitHub</span>
+              </a>
+            </span>
+            <!-- Huggingface Demo Link. -->
+            <span class="link-block">
+              <a href="https://huggingface.co/datasets/DY-Evalab/EvalMuse" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <img src="assets/images/logo/hf-logo.svg" style="display:block;width:330px;height:240px" />
+                </span>
+                <span>Datasets</span>
+              </a>
+            </span>
+			<span class="link-block">
+				<a href="https://huggingface.co/datasets/DY-Evalab/EvalMuse" target="_blank"
+				  class="external-link button is-normal is-rounded is-dark">
+				  <span class="icon">
+					<img src="assets/images/logo/leaderboard.svg" style="display:white;width:330px;height:240px" />
+				  </span>
+				  <span>LeaderBoard</span>
+				</a>
+			  </span>
+            <!-- Dataset Link. -->
+            <!-- <span class="link-block">
+              <a href="" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="far fa-images"></i>
+                </span>
+                <span>Dataset</span>
+              </a> -->
+          </div>
+
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop" style="width: 50%; max-width: none;">
+      <div class="hero-body">
+            <img src="assets/images/framework.png" style="width:100%; margin-bottom:10px" alt="Teaser."/>
+      <p style="margin-top: 0;">
+        <b>Overview of EvalMuse-40K</b>, consisting of (a) <b>data collection</b>, (b) <b>data annotation</b>, and (c) <b>evaluation methods</b>. <b>(a)</b> We collected 2K real prompts and 2K synthetic prompts, using the MILP sampling strategy to ensure category balance and diversity. Prompts are further divided into elements, and corresponding questions are generated. We also use various T2I models to generate images. <b>(b)</b> During data annotation, we labeled the fine-grained alignment levels of image-text pairs, structural problems about the generated images, and some extra information. For annotated data with large differences in overall alignment scores, we performed re-annotation to ensure the reliability of the benchmark. <b>(c)</b> We proposed two effective image-text alignment evaluation methods: one is <b>FGA-BLIP2</b>, using a fine-tuned vision-language model for direct fine-grained scoring of image-text pairs, and another is <b>PN-VQA</b>, adopting positive-negative VQA manner for zero-shot evaluation.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- Paper video. -->
+<section class="hero is-light">
+  <div class="columns is-centered has-text-centered"  style="margin-top: 0px; margin-bottom: 10px;">
+    <div class="column is-three-fifths">
+      <h2 class="title is-3">Video (TBD)</h2>
+      <div class="publication-video">
+        <iframe width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- / Paper video.   -->
+
+<!-- Abstract. -->
+<section>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered" style="margin-top: 10px; margin-bottom: 0px;">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 is-centered">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+			Recently, Text-to-Image (T2I) generation models have achieved significant advancements. 
+			Correspondingly, many automated metrics have emerged to evaluate the image-text alignment capabilities of generative models.
+			However, the performance comparison among these automated metrics is limited by existing small datasets. 
+			Additionally, these datasets lack the capacity to assess the performance of automated metrics at a fine-grained level.
+			In this study, we contribute an <b>EvalMuse-40K</b> benchmark, gathering <b>40K</b> image-text pairs with <b>fine-grained</b> human annotations for image-text alignment-related tasks.
+			In the construction process, we employ various strategies such as <b>balanced prompt sampling</b> and <b>data re-annotation</b> to ensure the diversity and reliability of our benchmark.
+			This allows us to comprehensively evaluate the effectiveness of image-text alignment metrics for T2I models.
+			Meanwhile, we introduce two new methods to evaluate the image-text alignment capabilities of T2I models: <b>FGA-BLIP2</b> which involves end-to-end fine-tuning of a vision-language model to produce fine-grained image-text alignment scores and <b></b> which adopts a novel positive-negative VQA manner in VQA models for zero-shot fine-grained evaluation.
+			Both methods achieve impressive performance in image-text alignment evaluations. 
+			We also use our methods to rank current AIGC models, in which the results can serve as a reference source for future study and promote the development of T2I generation.
+          </p>
+        </div>
+      </div>
+    </div>
+</section>
+<!--/ Abstract. -->
+
+<!-- footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Website source code based on the <a href="https://nerfies.github.io/"> Nerfies</a> project page. If you want to reuse their <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a>, please credit them appropriately.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+
+
