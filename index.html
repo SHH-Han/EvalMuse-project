@@ -35,12 +35,12 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./assets/css/index.css">
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./assets/js/fontawesome.all.min.js"></script>
   <script src="./assets/js/bulma-carousel.min.js"></script>
   <script src="./assets/js/bulma-slider.min.js"></script>
   <script src="./assets/js/index.js"></script>
+  
 </head>
 <body>
 
@@ -173,7 +173,378 @@
       </div>
     </div>
 </section>
+<hr>
 <!--/ Abstract. -->
+
+<!-- Data Statistics. -->
+<section class="section" style="margin-top:-70px; margin-bottom:-100px;">
+	<div class="container is-max-desktop">
+	  <div class="hero-body">
+		  <div class="section-title">
+			<h2 class="title is-3 is-centered">Data Statistics in EvalMuse-40K</h2>
+		  </div>
+		  <div class="section-title">
+			<h2 class="title is-4 is-centered">Word Cloud</h2>
+		  </div>
+		  <div class="columns is-centered has-text-centered">
+			<div class="column">
+			  <div class="publication-img">
+				<img id="architecture" src="assets/images/wordcloud_output.png" style="width:600px; margin-top:10px;"/>
+			  </div>
+			</div>
+		  </div>
+		  <p style="margin-top: 0;">
+			<b>We used the word cloud to visualize the distribution of words among the elements of prompts in EvalMuse-40K.</b>
+		  </p>
+
+		  <div class="section-title" style="margin-top: 30px;">
+			<h2 class="title is-4 is-centered">Real Prompt Sampling</h2>
+		  </div>
+		  <div class="columns is-centered has-text-centered">
+			<div class="column">
+			  <div class="publication-img">
+				<img id="architecture" src="assets/images/prompt_sample.png" style="width:1000px; margin-top:10px;"/>
+			  </div>
+			</div>
+		  </div>
+		  <p style="margin-top: 0;">
+			<b>Distribution of data before and after sampling in four dimensions using MILP strategy.</b> 
+			We randomly sampled 100K prompts from DiffusionDB and then categorized them in four dimensions.
+			It can be observed that through MILP
+sampling, the distribution of prompts across various dimensions is more balanced.
+		  </p>
+
+		  <div class="section-title" style="margin-top: 30px;">
+			<h2 class="title is-4 is-centered">Alignment Score Distribution</h2>
+		  </div>
+		  <div class="columns is-centered has-text-centered">
+			<div class="column">
+			  <div class="publication-img">
+				<img id="architecture" src="assets/images/score_proportion.png" style="width:400px; margin-top:10px;"/>
+			  </div>
+			</div>
+		  </div>
+		  <p style="margin-top: 0;">
+			<b>We visualize the distribution of alignment scores in EvalMuse-40K.</b> It can be seen that the alignment scores are widely distributed, providing a rich sample for evaluating the consistency of existing models in metrics of image-text alignment with respect to human preferences.
+		  </p>
+
+		  <div class="section-title" style="margin-top: 30px;">
+			<h2 class="title is-4 is-centered">Differences in Human Preferences</h2>
+		  </div>
+		  <div class="columns is-centered has-text-centered">
+			<div class="column">
+			  <div class="publication-img">
+				<img id="architecture" src="assets/images/diff.png" style="width:400px; margin-top:10px;"/>
+			  </div>
+			</div>
+		  </div>
+		  <p style="margin-top: 0;">
+			<b>We visualize differences in alignment scores across human annotations.</b> We found 75% of alignment scores differ by less than 1, showing high annotation consistency. For larger differences, we re-annotated to reduce bias.
+		  </p>
+
+		  <div class="section-title" style="margin-top: 30px;">
+			<h2 class="title is-4 is-centered">Fine-Grained Annotation Quantity and Scores</h2>
+		  </div>
+		  <div class="columns is-centered has-text-centered">
+			<div class="column">
+			  <div class="publication-img">
+				<img id="architecture" src="assets/images/element_combined.png" style="width:400px; margin-top:10px;"/>
+			  </div>
+			</div>
+		  </div>
+		  <p style="margin-top: 0;">
+			<b>We visualize the number and scores of fine-grained annotations.</b> Most categories have alignment scores around 50%, ensuring balanced positive and negative samples. And we found that AIGC models show weaker consistency in counting, spatial relationships, and activities with prompts.
+		  </p>
+
+	  </div>
+	</div>
+</section>
+<hr>
+<!-- Data Statistics. -->
+
+<!-- Evaluation Results in EvalMuse-40K. -->
+<section class="section" style="margin-top:-70px; margin-bottom:-100px;">
+	<div class="container is-max-desktop">
+	  <div class="hero-body">
+		  <div class="section-title">
+			<h2 class="title is-3 is-centered">Evaluation Results in EvalMuse-40K</h2>
+		  </div>
+		  <div class="section-title">
+			<h2 class="title is-4 is-centered">Overall Alignment Evaluation on Multiple Benchmarks</h2>
+		  </div>
+		  <div class="columns is-centered has-text-centered">
+			<div class="column">
+			  <div class="publication-img">
+				<img id="architecture" src="assets/images/radar_fga.png" style="width:600px; margin-top:10px;"/>
+			  </div>
+			</div>
+		  </div>
+		  <p style="margin-top: 0;">
+			<!-- We visualize the results of our proposed FGA-BLIP2 and other state-of-the-art methods which only use image-text pair to output overall alignment score on multiple benchmarks. -->
+		  </p>
+
+		  <div class="section-title" style="margin-top: 30px;">
+			<h2 class="title is-4 is-centered">Overall Alignment Evaluation on Multiple Benchmarks</h2>
+		  </div>
+		  <div class="columns is-centered has-text-centered">
+			<div class="column">
+			  <div class="publication-img">
+				<img id="architecture" src="assets/images/radar_fine.png" style="width:600px; margin-top:10px;"/>
+			  </div>
+			</div>
+		  </div>
+		  <p style="margin-top: 0;">
+		  </p>
+
+		  <div class="section-title" style="margin-top: 30px;">
+			<h2 class="title is-4 is-centered">Overall Alignment Evaluation on Multiple Benchmarks</h2>
+		  </div>
+		  <div class="columns is-centered has-text-centered">
+			<div class="column">
+			  <div class="publication-img">
+				<img id="architecture" src="assets/images/radar_t2i.png" style="width:600px; margin-top:10px;"/>
+			  </div>
+			</div>
+		  </div>
+		  <p style="margin-top: 0;">
+		  </p>
+
+	  </div>
+	</div>
+</section>
+<hr>
+<!-- Evaluation Results in EvalMuse-40K. -->
+
+<!-- Data Statistics. -->
+<!-- <section class="section" style="margin-top:0px; margin-bottom:0px;">
+	<div class="hero-body">
+	  <div class="container is-max-desktop">
+		<div class="section-title">
+		  <h2 class="title is-3">Data Statistics in EvalMuse-40K</h2>
+		  <h2></h2>
+		</div>
+		<div id="results-carousel-face" class="carousel results-carousel">
+		  <div class="item item-puppet">
+				<div class="carousel-content">
+					<div class="image-container">
+						<p class="image-caption">
+							<br>
+						</p>
+						  <img src="assets/images/wordcloud_output.png" alt="Flicker and Subject" style="width:70%; height:auto;">
+						<p class="image-caption">
+							<b>We used the word cloud to visualize the distribution of words among the elements of prompts in EvalMuse-40K</b> 
+						</p>
+					</div>
+				</div>
+			  </div>
+			<div class="item item-round_bird">
+			<div class="carousel-content">
+				<div class="image-container">
+					<p class="image-caption">
+						<br>
+					</p>
+			  		<img src="assets/images/score_proportion.png" alt="Flicker and Subject" style="width:50%; height:auto;">
+					<p class="image-caption">
+						<b>We visualize the distribution of alignment scores in EvalMuse-40K.</b> It can be seen that the alignment scores are widely distributed, providing a rich sample for evaluating the consistency of existing models in metrics of image-text alignment with respect to human preferences.
+					</p>
+				</div>
+			</div>
+		  </div>
+		<div class="item item-puppet">
+			<div class="carousel-content">
+				<div class="image-container">
+					<p class="image-caption">
+						<br>
+					</p>
+			  		<img src="assets/images/diff.png" alt="Flicker and Subject" style="width:50%; height:auto;">
+					<p class="image-caption">
+						<b>We visualize differences in alignment scores across human annotations.</b> We found 75% of alignment scores differ by less than 1, showing high annotation consistency. For larger differences, we re-annotated to reduce bias.
+					</p>
+				</div>
+			</div>
+		  </div>
+		<div class="item item-round_bird">
+			<div class="carousel-content">
+				<div class="image-container">
+					<p class="image-caption">
+						<br>
+					</p>
+			  		<img src="assets/images/element_combined.png" alt="Flicker and Subject" style="width:50%; height:auto;">
+					<p class="image-caption">
+						<b>We visualize the number and scores of fine-grained annotations.</b> Most categories have alignment scores around 50%, ensuring balanced positive and negative samples. And we found that AIGC models show weaker consistency in counting, spatial relationships, and activities with prompts.
+					</p>
+				</div>
+			</div>
+		  </div>
+
+		  </div>
+		</div>
+	  </div>
+	</div>
+</section> -->
+<!-- Data Statistics. -->
+
+
+<!-- Examples for Alignment Evaluation -->
+<section class="section" style="margin-top:-70px; margin-bottom:0px;">
+	<div class="hero-body">
+	  <div class="container is-max-desktop">
+		<div class="section-title">
+			<h2 class="title is-3">Examples for Alignment Evaluation</h2>
+		  </div>
+		<div class="section-title">
+		  <h2 class="title is-4">Overall Alignment Score evaluation</h2>
+		</div>
+		<!-- Single Line -->
+		<div id="results-carousel-face" class="carousel results-carousel">
+		  <div class="item item-puppet">
+				<div class="carousel-content">
+					<div class="image-container">
+						  <img src="assets/images/blip2_vis1_1.png" alt="Flicker and Subject" style="width:70%; height:auto;">
+					</div>
+				</div>
+			  </div>
+			<div class="item item-round_bird">
+			<div class="carousel-content">
+				<div class="image-container">
+			  		<img src="assets/images/blip2_vis1_2.png" alt="Flicker and Subject" style="width:70%; height:auto;">
+				</div>
+			</div>
+		  </div>
+		<div class="item item-puppet">
+			<div class="carousel-content">
+				<div class="image-container">
+			  		<img src="assets/images/blip2_vis1_3.png" alt="Flicker and Subject" style="width:70%; height:auto;">
+				</div>
+			</div>
+		  </div>
+		<div class="item item-round_bird">
+			<div class="carousel-content">
+				<div class="image-container">
+			  		<img src="assets/images/blip2_vis1_4.png" alt="Flicker and Subject" style="width:70%; height:auto;">
+				</div>
+			</div>
+		  </div>
+
+		  </div>
+		  <div class="section-title">
+			<h2 class="title is-4" style="margin-top: 30px;">Fine-Grained Alignment Score Evaluation</h2>
+		  </div>
+		  <div id="results-carousel-face" class="carousel results-carousel">
+			<div class="item item-puppet">
+				  <div class="carousel-content">
+					  <div class="image-container">
+							<img src="assets/images/VQA1_1.png" alt="Flicker and Subject" style="width:70%; height:auto;">
+					  </div>
+				  </div>
+				</div>
+			  <div class="item item-round_bird">
+			  <div class="carousel-content">
+				  <div class="image-container">
+						<img src="assets/images/VQA1_2.png" alt="Flicker and Subject" style="width:70%; height:auto;">
+				  </div>
+			  </div>
+			</div>
+		  <div class="item item-puppet">
+			  <div class="carousel-content">
+				  <div class="image-container">
+						<img src="assets/images/VQA1_3.png" alt="Flicker and Subject" style="width:70%; height:auto;">
+				  </div>
+			  </div>
+			</div>
+		  <div class="item item-round_bird">
+			  <div class="carousel-content">
+				  <div class="image-container">
+						<img src="assets/images/VQA1_4.png" alt="Flicker and Subject" style="width:70%; height:auto;">
+				  </div>
+			  </div>
+			</div>
+  
+			</div>
+		</div>
+	  </div>
+	</div>
+	<br>
+</section>
+<!-- Examples for Alignment Evaluation -->
+
+<!-- Fine-grained alignment score evaluation. -->
+<!-- <section class="hero is-light" style="margin-top:-100px; margin-bottom:-50px;">
+	<div class="hero-body">
+	  <div class="container is-max-desktop">
+		<div class="section-title">
+		  <h2 class="title is-3">Fine-Grained Alignment Score Evaluation</h2>
+		</div>
+		<div id="results-carousel-face" class="carousel results-carousel">
+		  <div class="item item-puppet">
+				<div class="carousel-content">
+					<div class="image-container">
+						<p class="image-caption">
+							<br>
+						</p>
+						  <img src="assets/images/VQA1_1.png" alt="Flicker and Subject" style="width:70%; height:auto;">
+					</div>
+				</div>
+			  </div>
+			<div class="item item-round_bird">
+			<div class="carousel-content">
+				<div class="image-container">
+					<p class="image-caption">
+						<br>
+					</p>
+			  		<img src="assets/images/VQA1_2.png" alt="Flicker and Subject" style="width:70%; height:auto;">
+				</div>
+			</div>
+		  </div>
+		<div class="item item-puppet">
+			<div class="carousel-content">
+				<div class="image-container">
+					<p class="image-caption">
+						<br>
+					</p>
+			  		<img src="assets/images/VQA1_3.png" alt="Flicker and Subject" style="width:70%; height:auto;">
+				</div>
+			</div>
+		  </div>
+		<div class="item item-round_bird">
+			<div class="carousel-content">
+				<div class="image-container">
+					<p class="image-caption">
+						<br>
+					</p>
+			  		<img src="assets/images/VQA1_4.png" alt="Flicker and Subject" style="width:70%; height:auto;">
+				</div>
+			</div>
+		  </div>
+
+		  </div>
+		</div>
+	  </div>
+	</div>
+</section> -->
+<!-- Fine-grained alignment score evaluation. -->
+
+<!-- Leaderboard. -->
+<!-- <section class="hero is-light" style="margin-top:-100px; margin-bottom:-50px;">
+	<div class="container is-max-desktop">
+	  <div class="hero-body">
+		  <div class="section-title">
+			<h2 class="title is-3 is-centered">Leaderboard</h2>
+		  </div>
+		  <div class="columns is-centered has-text-centered">
+			<div class="column">
+			  <iframe
+			  src="http://localhost:8080/"
+			  frameborder="0"
+			  width="1400"
+			  height="700"
+			 ></iframe>
+			</div>
+		  </div>
+	  </div>
+	</div>
+  </section> -->
+<!-- / Leaderboard. -->
 
 <!-- footer -->
 <footer class="footer">
@@ -204,6 +575,7 @@
     </div>
   </div>
 </footer>
+<!-- footer -->
 
 </body>
 </html>
