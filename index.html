@@ -386,7 +386,7 @@ sampling, the distribution of prompts across various dimensions is more balanced
 
 
 <!-- Examples for Alignment Evaluation -->
-<section class="section" style="margin-top:-70px; margin-bottom:0px;">
+<section class="section" style="margin-top:-70px; margin-bottom:-70px;">
 	<div class="hero-body">
 	  <div class="container is-max-desktop">
 		<div class="section-title">
@@ -466,7 +466,30 @@ sampling, the distribution of prompts across various dimensions is more balanced
 	</div>
 	<br>
 </section>
+<hr>
 <!-- Examples for Alignment Evaluation -->
+
+<!-- Submission Guideline-->
+<section class="section" style="margin-top:-70px; margin-bottom:0px;" id="guideline">
+	<div class="container is-max-desktop">
+		<div class="hero-body">
+			<div class="section-title">
+			<h2 class="title is-3">Submission Guideline</h2>
+			</div>
+			<p>Our EvalMuse-40K can be used to evaluate the following three tasks, including:</p>
+			<ul style="list-style-type: disc; margin-left: 20px;">
+				<li>Evaluating the correlation of the <strong>overall image-text alignment scores</strong> with human preferences.</li>
+				<li>Evaluating the correlation of the <strong>fine-grained image-text alignment scores</strong> with human preferences.</li>
+				<li>Evaluating the <strong>performance of the T2I model</strong> on the image-text alignment task.</li>
+			</ul>
+			<br>
+			<p>For evaluating model correlation with human preference, you can download our dataset from <a href="https://huggingface.co/datasets/DY-Evalab/EvalMuse" target="_blank">Huggingface</a>.You can train with our training set (with human-annotated scores) and output the results of the model on the test set. Since the test set does not  include human-annotated scores (they will be available later), you can email <a href="mailto:fanhaotian@bytedance.com">fanhaotian@bytedance.com</a> to submit your result in JSON format and get the correlation with human preferences.</p>
+			<br>
+			<p>For evaluating the image-text alignment performance of the T2I model, we recommend using <strong>FGA-BLIP2</strong>, which achieves good performance in both overall alignment and fine-grained alignment.</p>
+		</div>
+	</div>
+</section>
+<!-- Submission Guideline. -->
 
 <!-- Fine-grained alignment score evaluation. -->
 <!-- <section class="hero is-light" style="margin-top:-100px; margin-bottom:-50px;">
